@@ -9,7 +9,7 @@
 
 ### Set the required enviroment variables:
 
-[Go here to create a token](https://github.com/settings/tokens)
+You can generate a token [here](https://github.com/settings/tokens). It doesn't require any scope.
 
 `export GITHUB_ACCESS_TOKEN='xxxxxx'`
 

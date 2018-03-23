@@ -6,13 +6,18 @@ class Languages
   end
 
   def get_most_used(username)
-    language = most_used_languages_sorted(username).first
+    language = all_languages_sorted(username).first
     {:language => language[0], :bytes => language[1]}
+  end
+
+  def get_top_three(username)
+    top_three = all_languages_sorted(username)[0, 3].to_h
+    top_three.map {|language, bytes| {:language => language, :bytes => bytes}}
   end
 
   private
 
-  def most_used_languages_sorted(username)
+  def all_languages_sorted(username)
     languages = @github_api.get_all_languages_used(username)
     merge_languages(languages).sort_by {|key, value| value}.reverse
   end

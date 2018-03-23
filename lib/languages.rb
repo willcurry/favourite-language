@@ -5,11 +5,6 @@ class Languages
     @github_api = github_api
   end
 
-  def get_most_used(username)
-    language = all_languages_sorted(username).first
-    {:language => language[0], :bytes => language[1]}
-  end
-
   def get_top_three(username)
     top_three = all_languages_sorted(username)[0, 3].to_h
     top_three.map {|language, bytes| {:language => language, :bytes => bytes}}

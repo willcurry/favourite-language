@@ -5,13 +5,15 @@ class GitHubAPI
     @client = client
   end
 
-  def get_all_repository_ids(username)
-    @client.list_repositories(username).map {|repository| repository.id}
-  end
-
   def get_all_languages_used(username)
     repositories = get_all_repository_ids(username)
     repositories.map {|id| get_languages(id)}.flatten
+  end
+
+  private
+
+  def get_all_repository_ids(username)
+    @client.list_repositories(username).map {|repository| repository.id}
   end
 
   def get_languages(repository_id)

@@ -5,10 +5,6 @@ require_relative 'repository_mock.rb'
 RSpec.describe GitHubAPI do
   let (:api) {Helper.create_mocked_api}
 
-  it "gets all repositories and returns an array of ids" do
-    expect(api.get_all_repository_ids("fake name")).to eq([1, 2])
-  end
-
   it "gets all languages and returns a hash map contains language and bytes" do
     expected = [{:language=>:ruby, :bytes=>5000},
                 {:language=>:python, :bytes=>500},

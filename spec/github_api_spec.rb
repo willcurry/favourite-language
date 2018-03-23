@@ -1,6 +1,4 @@
 require_relative '../lib/github_api.rb'
-require_relative 'octokit_mock.rb'
-require_relative 'repository_mock.rb'
 
 RSpec.describe GitHubAPI do
   let (:api) {Helper.create_mocked_api}

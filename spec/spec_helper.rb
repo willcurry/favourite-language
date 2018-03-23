@@ -1,4 +1,6 @@
 require 'coveralls'
+require_relative 'mocks/octokit_mock.rb'
+require_relative 'mocks/repository_mock.rb'
 
 class Helper
   def self.create_mocked_api

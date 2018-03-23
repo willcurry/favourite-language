@@ -1,4 +1,4 @@
-<h3>Languages</h3>
+<h3><%= @username %>'s top languages!</h3>
 
 <% @languages_to_display.each do |language| %>
   <p>Language: <%= language[:language] %> Bytes: <%= language[:bytes] %></p>

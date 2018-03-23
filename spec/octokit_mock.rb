@@ -7,7 +7,7 @@ class OctokitMock
     @repositories
   end
 
-  def languages(repository_name)
-    [[:ruby, 5000], [:ruby, 1000], [:python, 500]]
+  def languages(repository_id)
+    @repositories.find {|repository| repository.id == repository_id}.languages
   end
 end

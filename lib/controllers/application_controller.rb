@@ -1,4 +1,5 @@
 require "sinatra"
+require_relative "../github_api.rb"
 
 class ApplicationController < Sinatra::Base
   use Rack::Session::Pool, :expire_after => 2592000

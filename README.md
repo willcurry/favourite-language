@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/willcurry/favourite-language/badge.svg?branch=master)](https://coveralls.io/github/willcurry/favourite-language?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/willcurry/favourite-language/badge.svg?branch=master&service=github)](https://coveralls.io/github/willcurry/favourite-language?branch=master)
 [![Build Status](https://travis-ci.org/willcurry/favourite-language.svg?branch=master)](https://travis-ci.org/willcurry/favourite-language)
 
 ## Setup

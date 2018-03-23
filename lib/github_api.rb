@@ -6,7 +6,7 @@ class GitHubAPI
   end
 
   def get_all_repository_ids(username)
-    @client.list_repositories("willcurry").map {|repository| repository.id}
+    @client.list_repositories(username).map {|repository| repository.id}
   end
 
   def get_all_languages_used(username)

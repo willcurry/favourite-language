@@ -1,0 +1,5 @@
+<h3>Languages</h3>
+
+<% @languages_to_display.each do |language| %>
+  <p>Language: <%= language[:language] %> Bytes: <%= language[:bytes] %></p>
+<% end %>

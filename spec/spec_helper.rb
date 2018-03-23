@@ -1,3 +1,5 @@
+require 'coveralls'
+
 class Helper
   def self.create_mocked_api
     repositories = [RepositoryMock.new(1, [[:ruby, 5000], [:python, 500]]), RepositoryMock.new(2, [[:ruby, 1000], [:html, 100], [:c, 50]])]
@@ -6,6 +8,7 @@ class Helper
 end
 
 RSpec.configure do |config|
+  Coveralls.wear!
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

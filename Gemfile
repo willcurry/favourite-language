@@ -6,5 +6,6 @@ gem 'octokit', '~> 4.0'
 
 group :test do
   gem 'rspec'
+  gem 'rack-test', '0.8.3'
   gem 'coveralls', require: false
 end

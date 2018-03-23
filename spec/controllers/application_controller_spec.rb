@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
-require_relative '../../lib/controllers/application_controller'
+require 'controllers/application_controller'
 require 'rack/test'
 
 RSpec.describe ApplicationController do

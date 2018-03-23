@@ -1,5 +1,7 @@
-require_relative "lib/controllers/application_controller.rb"
-require_relative "lib/controllers/languages_controller.rb"
+$: << File.expand_path('lib', File.dirname(__FILE__))
+
+require "controllers/application_controller"
+require "controllers/languages_controller"
 
 map("/") {run ApplicationController}
 map("/languages") {run LanguagesController}

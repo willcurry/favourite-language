@@ -1,5 +1,5 @@
 require 'sinatra'
-require_relative '../languages.rb'
+require 'languages'
 
 class ApplicationController < Sinatra::Base
   use Rack::Session::Pool, :expire_after => 2592000

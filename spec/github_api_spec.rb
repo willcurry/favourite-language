@@ -1,4 +1,4 @@
-require_relative '../lib/github_api.rb'
+require 'github_api.rb'
 
 RSpec.describe GitHubAPI do
   let (:api) {Helper.create_mocked_api}

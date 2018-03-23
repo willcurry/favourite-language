@@ -1,4 +1,4 @@
-require_relative "github_api.rb"
+require 'github_api'
 
 class Languages
   def initialize(github_api=GitHubAPI.new)

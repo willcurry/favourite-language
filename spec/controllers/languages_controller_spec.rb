@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
-require_relative '../../lib/controllers/languages_controller'
+require 'controllers/languages_controller'
 require 'rack/test'
 
 RSpec.describe LanguagesController do

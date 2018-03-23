@@ -1,4 +1,4 @@
-require_relative "../lib/languages.rb"
+require 'languages'
 
 RSpec.describe Languages do
   let (:api) {Helper.create_mocked_api}

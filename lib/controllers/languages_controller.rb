@@ -1,5 +1,5 @@
-require_relative "application_controller.rb"
-require_relative '../languages.rb'
+require 'controllers/application_controller.rb'
+require 'languages'
 
 class LanguagesController < ApplicationController
   configure do

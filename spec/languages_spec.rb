@@ -10,9 +10,9 @@ RSpec.describe Languages do
     expect(languages.get_top_three("fake name")).to eq(expected)
   end
 
-  it "returns empty array when user has no repositories" do
+  it "raises error when user has no repositories" do
     api = GitHubAPI.new(OctokitMock.new([]))
     languages = Languages.new(api)
-    expect(languages.get_top_three("fake name")).to eq([])
+    expect{languages.get_top_three("fake name")}.to raise_exception("No repositories found")
   end
 end

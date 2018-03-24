@@ -37,10 +37,18 @@ RSpec.describe LanguagesController do
     expect(last_response.body).to include("ruby is their favourite")
   end
 
-  it "post /top displays error page if username is invalid" do
+  it "post /top displays invalid name error page if username is invalid" do
     post "/top", {:username => "w "}
     expect(last_response.body).to include("invalid username")
     post "/top", {:username => "wdjjjjjjjjjjjjeiiiwijfoiwjvrneivnjornjgnbjngjobnrobnrobnrjbnrojbnjronbojrnbojrno"}
     expect(last_response.body).to include("invalid username")
+  end
+
+  it "post /top displays no data error page if user has no repositories" do
+    api = GitHubAPI.new(OctokitMock.new([]))
+    languages = Languages.new(api)
+    LanguagesController.set :languages, languages
+    post "/top", {:username => "willcurry"}
+    expect(last_response.body).to include("has no public repositories")
   end
 end

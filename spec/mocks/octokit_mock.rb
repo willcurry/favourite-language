@@ -4,6 +4,7 @@ class OctokitMock
   end
 
   def list_repositories(username)
+    raise "No repositories found" if @repositories.count == 0
     @repositories
   end
 

@@ -21,7 +21,7 @@ class LanguagesController < ApplicationController
     begin
       @languages_to_display = settings.languages.get_top_three(@username)
     rescue
-      erb :invalid_username
+      erb :no_repositories
     else
       erb :languages
     end

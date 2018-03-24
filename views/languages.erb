@@ -1,5 +1,8 @@
 <h3><%= @username %>'s top languages!</h3>
 
+<p><%= @languages_to_display.first[:language]%> is their favourite with <%= @languages_to_display.first[:bytes]%> bytes.</p>
+
+<h4>Top 3 languages used</h4>
 <% @languages_to_display.each do |language| %>
   <p>Language: <%= language[:language] %> Bytes: <%= language[:bytes] %></p>
 <% end %>

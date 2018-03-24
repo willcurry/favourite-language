@@ -16,39 +16,48 @@ RSpec.describe LanguagesController do
     LanguagesController.set :languages, languages
   end
 
-  it "post /top returns ok response" do
+  it "returns ok response" do
     post "/top", {:username => "willcurry"}
     expect(last_response).to be_ok
   end
 
-  it "post /top displays top 3 languages" do
+  it "displays top 3 languages" do
     post "/top", {:username => "willcurry"}
     expected = "<p>Language: ruby Bytes: 6000</p>\n  <p>Language: python Bytes: 500</p>\n  <p>Language: html Bytes: 100</p>"
     expect(last_response.body).to include(expected)
   end
 
-  it "post /top displays username in question" do
+  it "displays username in question" do
     post "/top", {:username => "willcurry"}
     expect(last_response.body).to include("willcurry")
   end
 
-  it "post /top displays their favourite language" do
+  it "displays their favourite language" do
     post "/top", {:username => "willcurry"}
     expect(last_response.body).to include("ruby is their favourite")
   end
 
-  it "post /top displays invalid name error page if username is invalid" do
+  it "displays invalid name error page if username is invalid" do
     post "/top", {:username => "w "}
     expect(last_response.body).to include("invalid username")
     post "/top", {:username => "wdjjjjjjjjjjjjeiiiwijfoiwjvrneivnjornjgnbjngjobnrobnrobnrjbnrojbnjronbojrnbojrno"}
     expect(last_response.body).to include("invalid username")
   end
 
-  it "post /top displays no data error page if user has no repositories" do
+  it "displays no data error page if user has no repositories" do
     api = GitHubAPI.new(OctokitMock.new([]))
     languages = Languages.new(api)
     LanguagesController.set :languages, languages
     post "/top", {:username => "willcurry"}
     expect(last_response.body).to include("has no public repositories")
+  end
+
+  it "displays actual number of repositories if its less then 3" do
+    repositories = [RepositoryMock.new(1, [[:ruby, 5000], [:python, 500]])]
+    api = GitHubAPI.new(OctokitMock.new(repositories))
+    languages = Languages.new(api)
+    LanguagesController.set :languages, languages
+    post "/top", {:username => "willcurry"}
+    expect(last_response.body).to include("Top 2")
   end
 end

@@ -10,7 +10,7 @@ RSpec.describe ApplicationController do
     ApplicationController.new
   end
 
-  it "get / route returns ok response and form is present" do
+  it "returns ok response and form is present" do
     get "/"
     expect(last_response).to be_ok
     expect(last_response.body).to include("<form")

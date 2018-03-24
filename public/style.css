@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.language-box {
+  width: 330px;
+  height: 80px;
+  background: rgba(200, 200, 200, 0.2);
+  border: 1px solid;
+  padding: 1px;
+  box-shadow: 1px;
+  border-color: rgba(200, 200, 200, 0.4);
+}
+
+.language-box img {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  width: 65px;
+  height: 65px;
+  float: left;
+}
+
+.top-right {
+  margin-top: -3px;
+  float: right;
+}
+
+.language-box p {
+  margin-left: 100px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+.language {
+  font-weight: 1500;
+}

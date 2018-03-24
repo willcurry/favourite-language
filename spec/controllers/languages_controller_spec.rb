@@ -23,8 +23,9 @@ RSpec.describe LanguagesController do
 
   it "displays top 3 languages" do
     post "/top", {:username => "willcurry"}
-    expected = "<p>Language: ruby Bytes: 6000</p>\n  <p>Language: python Bytes: 500</p>\n  <p>Language: html Bytes: 100</p>"
-    expect(last_response.body).to include(expected)
+    expect(last_response.body).to include("ruby")
+    expect(last_response.body).to include("python")
+    expect(last_response.body).to include("html")
   end
 
   it "displays username in question" do

@@ -1,8 +1,16 @@
-<h3><%= @username %>'s top languages!</h3>
+<link rel="stylesheet" type="text/css" href="/style.css">
 
+<h3><%= @username %>'s top languages!</h3>
 <p><%= @languages_to_display.first[:language]%> is their favourite with <%= @languages_to_display.first[:bytes]%> bytes.</p>
 
 <h4>Top <%= @languages_to_display.count %> languages used</h4>
+<% @count = 1 %>
 <% @languages_to_display.each do |language| %>
-  <p>Language: <%= language[:language] %> Bytes: <%= language[:bytes] %></p>
+  <div class="language-box">
+    <p class="top-right"><%= @count %></p>
+    <img src="http://webiconspng.com/wp-content/uploads/2017/01/Programming-Coding-Icon.png" alt="Lang"/>
+    <p class="language"><%= language[:language] %></p>
+    <p><%= language[:bytes] %></p>
+  </div>
+  <% @count += 1 %>
 <% end %>

@@ -13,7 +13,8 @@ class GitHubAPI
   private
 
   def get_all_repository_ids(username)
-    @client.list_repositories(username).map {|repository| repository.id}
+    repositories = @client.list_repositories(username)
+    repositories.map {|repository| repository.id}
   end
 
   def get_languages(repository_id)

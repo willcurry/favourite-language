@@ -8,7 +8,26 @@ class LanguagesController < ApplicationController
 
   post "/top" do
     @username = params[:username]
-    @languages_to_display = settings.languages.get_top_three(@username)
-    erb :languages
+    if valid_username?
+      display_language_data
+    else
+      erb :invalid_username
+    end
+  end
+
+  private
+
+  def display_language_data
+    begin
+      @languages_to_display = settings.languages.get_top_three(@username)
+    rescue
+      erb :invalid_username
+    else
+      erb :languages
+    end
+  end
+
+  def valid_username?
+    !@username.nil? && @username.length > 5 && @username.length < 33
   end
 end

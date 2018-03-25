@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'languages'
+require 'github_util'
 
 class ApplicationController < Sinatra::Base
   use Rack::Session::Pool, :expire_after => 2592000

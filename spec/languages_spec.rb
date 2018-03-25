@@ -11,8 +11,7 @@ RSpec.describe Languages do
   end
 
   it "raises error when user has no repositories" do
-    api = GitHubAPI.new(OctokitMock.new([]))
-    languages = Languages.new(api)
+    languages = Languages.new(Helper.create_api_with_no_repositories)
     expect{languages.get_top_three("fake name")}.to raise_exception("No repositories found")
   end
 end

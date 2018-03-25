@@ -9,6 +9,10 @@ class Helper
     repositories = [RepositoryMock.new(1, [[:ruby, 5000], [:python, 500]]), RepositoryMock.new(2, [[:ruby, 1000], [:html, 100], [:c, 50]])]
     GitHubAPI.new(OctokitMock.new(repositories))
   end
+
+  def self.create_api_with_no_repositories
+    GitHubAPI.new(OctokitMock.new([]))
+  end
 end
 
 RSpec.configure do |config|

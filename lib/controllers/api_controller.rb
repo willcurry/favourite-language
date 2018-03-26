@@ -23,7 +23,7 @@ class APIController < ApplicationController
     rescue
       {status: "fail", error: "user has no data"}.to_json
     else
-      @languages_to_display.to_json
+      {status: "success", languages: @languages_to_display}.to_json
     end
   end
 end

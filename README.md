@@ -33,6 +33,13 @@ Alternatively you can do a GET request on:
 
 And receive a json payload like this:
 
-`[{"language":"Ruby","bytes":168181},
-  {"language":"Java","bytes":122209},
-  {"language":"Vim script","bytes":78081}]`
+`{"status": "success",
+  "languages": [{"language":"Ruby","bytes":168181},
+                {"language":"Java","bytes":122209},
+                {"language":"Vim script","bytes":78081}]}`
+
+If the status is "fail" there will be an error present, for example:
+
+`{"status": "fail",
+  "error": "username is invalid"}`
+

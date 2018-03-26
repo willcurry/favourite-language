@@ -20,7 +20,10 @@ RSpec.describe APIController do
   describe "GET /top" do
     it "gives json payload of repositories" do
       get "/top", {:username => "willcurry"}
-      expected = [{:language => "ruby", :bytes => 6000}, {:language => "python", :bytes => 500}, {:language => "html", :bytes => 100}].to_json
+      expected = {:status => "success",
+                  :languages => [{:language => "ruby", :bytes => 6000},
+                                 {:language => "python", :bytes => 500},
+                                 {:language => "html", :bytes => 100}]}.to_json
       expect(last_response.body).to eq(expected)
     end
 
